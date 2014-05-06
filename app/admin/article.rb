@@ -4,13 +4,15 @@ ActiveAdmin.register Article do
   index do
     selectable_column
     id_column
+    column :user
     column :title_id
     column :title_en
     column :content_id
     column :content_en
     actions
   end
-
+  
+  filter :user
   filter :title_id
   filter :title_en
   filter :content_id
@@ -22,11 +24,19 @@ ActiveAdmin.register Article do
     f.inputs "Blog Details" do
       f.input :title_id
       f.input :title_en
-      f.input :content_id
-      f.input :content_en
+      f.input :content_id, :as => :ckeditor
+      f.input :content_en, :as => :ckeditor
       f.input :is_active
     end
     f.actions
+  end
+  
+  show do |s|
+    render "admin/articles/show", article: s
+#    h3 article.title
+#    div do
+#      simple_format article.content
+#    end
   end
   
   # See permitted parameters documentation:

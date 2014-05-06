@@ -240,4 +240,6 @@ ActiveAdmin.setup do |config|
   #
   # config.filters = true
 
+  # To load a javascript file:
+  config.register_javascript 'ckeditor/init.js'
 end
