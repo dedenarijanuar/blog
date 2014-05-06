@@ -13,4 +13,8 @@ class Article < ActiveRecord::Base
   def content
     self.content_id ||= self.content_en
   end
+  
+  def user
+    self.user_id ||= 'admin'
+  end
 end

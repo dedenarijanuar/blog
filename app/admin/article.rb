@@ -4,20 +4,23 @@ ActiveAdmin.register Article do
   index do
     selectable_column
     id_column
-    column :user
-    column :title_id
-    column :title_en
-    column :content_id
-    column :content_en
+    
+    column "Creator" do |article|
+      article.user
+    end
+    column "Title" do |article|
+      article.title
+    end
+    column "Content" do |article|
+      ActionView::Base.full_sanitizer.sanitize(article.content.truncate(200))
+    end
     actions
   end
   
-  filter :user
   filter :title_id
   filter :title_en
   filter :content_id
   filter :content_en
-  filter :is_active
   filter :created_at
 
   form do |f|
