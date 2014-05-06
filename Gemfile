@@ -49,6 +49,7 @@ group :production do
 end
 
 gem 'faker'
+#rails generate active_admin:resource [MyModelName]
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'devise'
@@ -56,7 +57,11 @@ gem 'omniauth-facebook'
 
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'ckeditor_rails'
+
+#rails generate ckeditor:install --orm=active_record --backend=carrierwave
+gem 'ckeditor'
+
+#http://cloudinary.com/documentation/rails_integration
 gem 'cloudinary'
 gem 'cancan'
 gem 'delayed_job'
