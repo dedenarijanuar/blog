@@ -44,9 +44,9 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-group :production do
-  gem 'activerecord-mysql-adapter'
-end
+#group :production do
+#  gem 'activerecord-mysql-adapter'
+#end
 
 gem 'faker'
 #rails generate active_admin:resource [MyModelName]
@@ -63,7 +63,7 @@ gem 'ckeditor'
 
 #http://cloudinary.com/documentation/rails_integration
 gem 'cloudinary'
-gem 'cancan'
+#gem 'cancan'
 gem 'delayed_job'
 gem 'simple_form'
 
@@ -114,3 +114,4 @@ end
 # pagination
 gem 'kaminari'
 gem 'heroku'
+gem 'thin'
