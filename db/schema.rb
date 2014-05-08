@@ -93,14 +93,6 @@ ActiveRecord::Schema.define(version: 20140508135945) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
-  create_table "comments", force: true do |t|
-    t.integer  "article_id"
-    t.integer  "user_id"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "subscribes", force: true do |t|
     t.string   "email"
     t.boolean  "is_active"
