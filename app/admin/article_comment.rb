@@ -4,7 +4,7 @@ ActiveAdmin.register ArticleComment do
   index do
     selectable_column
     id_column
-    column :user
+    #column :user
     column :article
     column :content
     actions

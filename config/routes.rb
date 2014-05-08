@@ -1,7 +1,17 @@
 Blog::Application.routes.draw do
+
+  devise_for :users, :controllers => {
+    :registrations => "users/registrations", :passwords => "users/passwords", :confirmations => 'users/confirmations', :sessions => 'users/sessions'
+  }
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  
+  resources :blogs
+  resources :categories
+  get 'home' => 'home#index'
+  get 'about' => 'home#about'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

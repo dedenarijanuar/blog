@@ -1,5 +1,7 @@
 class Article < ActiveRecord::Base
   has_many :article_comments
+  belongs_to :user
+  belongs_to :category
   before_save :default_active
   
   def default_active
