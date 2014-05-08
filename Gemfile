@@ -67,6 +67,8 @@ gem 'cancan'
 gem 'delayed_job'
 gem 'simple_form'
 
+gem 'thin'
+
 #gem 'paranoid2'
 =begin soft delete with deleted_at coloumn
 class AddDeletedAtToClients < ActiveRecord::Migration
