@@ -1,4 +1,4 @@
-ActiveAdmin.register AdminUser do
+ActiveAdmin.register User do
   permit_params :email, :password, :password_confirmation
 
   index do
@@ -17,7 +17,7 @@ ActiveAdmin.register AdminUser do
   filter :created_at
 
   form do |f|
-    f.inputs "Admin Details" do
+    f.inputs "Users Details" do
       f.input :email
       f.input :password
       f.input :password_confirmation

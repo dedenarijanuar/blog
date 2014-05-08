@@ -16,7 +16,11 @@ class Article < ActiveRecord::Base
     self.content_id ||= self.content_en
   end
   
-  def user
-    self.user_id ||= 'admin'
+  def creator
+    self.user_id.present?? self.user.name : 'admin'
+  end
+  
+  def category_name
+    self.category.present?? self.category.name : '-'
   end
 end

@@ -11,10 +11,26 @@
   ActiveRecord::Base.connection.execute("TRUNCATE #{x} RESTART IDENTITY")
 end
 
+5.times do |i|
+  name = Faker::Name.name
+  User.create(
+    name: name, email: "#{name.gsub(' ','_')}@example.com",
+    password: 'password', password_confirmation: 'password'
+  )
+end
+
+10.times do |i|
+  name = Faker::Commerce.department
+  Category.create(name: name)
+end
+
 10.times do |i|
   title = Faker::Lorem.sentence
   content = Faker::Lorem.paragraph(10)
-  Article.create(title_id: title, title_en: title, content_id: content, content_en: content)
+  Article.create(
+    title_id: title, title_en: title, content_id: content, content_en: content,
+    user_id: User.all.sample(1).first.id, category_id: Category.all.sample(1).first.id
+  )
 end
 
 10.times do |i|

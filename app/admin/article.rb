@@ -6,8 +6,13 @@ ActiveAdmin.register Article do
     id_column
     
     column "Creator" do |article|
-      article.user
+      article.creator
     end
+    
+    column "Category" do |article|
+      article.category_name
+    end
+    
     column "Title" do |article|
       article.title
     end
@@ -29,6 +34,7 @@ ActiveAdmin.register Article do
       f.input :title_en
       f.input :content_id, :as => :ckeditor
       f.input :content_en, :as => :ckeditor
+      f.input :category
       f.input :is_active
     end
     f.actions
