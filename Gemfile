@@ -116,4 +116,3 @@ end
 # pagination
 gem 'kaminari'
 gem 'heroku'
-gem 'thin'
