@@ -36,11 +36,11 @@ end
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+ gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
+ gem 'capistrano'
+ gem 'rvm-capistrano'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
@@ -67,7 +67,6 @@ gem 'cloudinary'
 gem 'delayed_job'
 gem 'simple_form'
 
-gem 'thin'
 
 #gem 'paranoid2'
 =begin soft delete with deleted_at coloumn
