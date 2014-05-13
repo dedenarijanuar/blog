@@ -1,18 +1,17 @@
 require "bundler/capistrano"
-require "rvm/capistrano"
 
+# Define your server here
 server "128.199.230.36", :web, :app, :db, primary: true
 
+# Set application settings
 set :application, "blog"
-set :user, "kodesutra"
-set :port, 3233
-set :deploy_to, "/home/#{user}/#{application}"
+set :user, "kodesutra" # As defined on your server
+set :deploy_to, "/home/#{user}/#{application}" # Directory in which the deployment will take place
 set :deploy_via, :remote_cache
 set :use_sudo, false
-set :rails_env, "development"
 
-set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
-set :repository, "git@github.com:dedennufan/blog.git"
+set :scm, "git"
+set :repository, "git@github.com:dedennufan/#{application}.git"
 set :branch, "master"
 
 default_run_options[:pty] = true
@@ -24,15 +23,15 @@ namespace :deploy do
   %w[start stop restart].each do |command|
     desc "#{command} unicorn server"
     task command, roles: :app, except: {no_release: true} do
-      run "/etc/init.d/unicorn_#{application} #{command}"
+      run "/etc/init.d/unicorn_#{application} #{command}" # Using unicorn as the app server
     end
   end
 
   task :setup_config, roles: :app do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
-    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
+    sudo "ln -nfs #{current_path}/config/unicorn_ini.sh /etc/init.d/unicorn_#{application}"
     run "mkdir -p #{shared_path}/config"
-    put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+    put File.read("config/database.yml"), "#{shared_path}/config/database.yml"
     puts "Now edit the config files in #{shared_path}."
   end
   after "deploy:setup", "deploy:setup_config"
