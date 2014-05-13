@@ -8,6 +8,7 @@ set :application, "blog"
 set :user, "kodesutra" # As defined on your server
 set :deploy_to, "/home/#{user}/#{application}" # Directory in which the deployment will take place
 set :deploy_via, :remote_cache
+set :port, 3233
 set :use_sudo, false
 
 set :scm, "git"
