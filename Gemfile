@@ -42,6 +42,7 @@ end
    # Use Capistrano for deployment
    gem 'capistrano'
    gem 'rvm-capistrano'
+   gem 'debugger'
  end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
@@ -116,4 +117,11 @@ end
 
 # pagination
 gem 'kaminari'
-gem 'heroku'
+
+gem 'rspec-rails', group: [:development, :test]
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'guard-rspec'
+end

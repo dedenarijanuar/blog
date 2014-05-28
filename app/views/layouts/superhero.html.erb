@@ -26,11 +26,13 @@
           <a class="blog-nav-item" href="#">Press</a>
           <a class="blog-nav-item" href="#">New hires</a>
           <a class="blog-nav-item" href="#">About</a>
+          <%= sign_in? %>
         </nav>
       </div>
     </div>
 
     <div class="container">
+      <%= flash_message %>
 
       <div class="blog-header">
         <h1 class="blog-title">The Bootstrap Blog</h1>
