@@ -21,5 +21,9 @@ describe "Logins" do
     click_link "Logout"
     page.should have_content "Signed out successfully."
   end
+
+  it "should login through facebook successfully" do
+
+  end
 end
 

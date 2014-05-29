@@ -10,10 +10,14 @@ module ApplicationHelper
   end
 
  def sign_in?
-   if user_signed_in?
-     link_to "Logout", destroy_user_session_path, method: :delete 
-   else
-     link_to 'Login', new_user_session_path
+   content_tag :span, class: "auth_menu cf" do
+     if user_signed_in?
+       concat "Sign in as #{current_user.email}"
+       concat link_to "Sign out", destroy_user_session_path, method: :delete 
+     else
+       concat link_to 'Sign in', new_user_session_path
+       concat link_to 'Sign in with facebook', '#'
+     end
    end
  end
 
