@@ -23,3 +23,6 @@
 /public/uploads/ckeditor/pictures/1/thumb_coollogo_com-159792706.png
 /public/uploads/ckeditor/pictures/1/coollogo_com-159792706.png
 /public/uploads/ckeditor/pictures/1/content_coollogo_com-159792706.png
+
+# Ignore application configuration
+/config/application.yml

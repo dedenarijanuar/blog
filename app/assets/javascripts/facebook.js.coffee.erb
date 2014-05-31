@@ -1,0 +1,33 @@
+jQuery ->
+  $('body').prepend('<div id="fb-root"></div>');
+  
+  # Load the SDK asynchronously
+  ((d, s, id) ->
+    js = undefined
+    fjs = d.getElementsByTagName(s)[0]
+    return  if d.getElementById(id)
+    js = d.createElement(s)
+    js.id = id
+    js.src = "#{window.location.protocol}//connect.facebook.net/en_US/sdk.js"
+    fjs.parentNode.insertBefore js, fjs
+  ) document, "script", "facebook-jssdk"
+
+
+window.fbAsyncInit = ->
+  FB.init
+    appId: '<%= ENV["FACEBOOK_KEY"] %>'
+    cookie: true # enable cookies to allow the server to access
+    # the session
+    xfbml: true # parse social plugins on this page
+    version: "v2.0" # use version 2.0
+
+  $('#facebook_connect').click (e) ->
+    e.preventDefault()
+    FB.login (response) ->
+      window.location = '/auth/facebook/callback' if response.authResponse
+
+  $('#sign_out').click (e) ->
+    FB.getLoginStatus (response) ->
+      FB.logout() if response.authResponse
+    true
+

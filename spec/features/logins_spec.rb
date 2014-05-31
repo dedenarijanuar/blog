@@ -18,12 +18,14 @@ describe "Logins" do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
     visit root_path
-    click_link "Logout"
+    click_link "Sign out"
     page.should have_content "Signed out successfully."
   end
 
   it "should login through facebook successfully" do
-
+    visit root_path
+    click_link 'Sign in with facebook'
+    page.should have_content "Signed in successfully."
   end
 end
 
