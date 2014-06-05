@@ -21,11 +21,9 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-          <a class="blog-nav-item active" href="#">Home</a>
-          <a class="blog-nav-item" href="#">New features</a>
-          <a class="blog-nav-item" href="#">Press</a>
-          <a class="blog-nav-item" href="#">New hires</a>
-          <a class="blog-nav-item" href="#">About</a>
+          <% @categories.each do |category| %>
+            <a class="blog-nav-item" href="#"><%= category.name %></a>
+          <% end %>
           <%= sign_in? %>
         </nav>
       </div>
@@ -59,18 +57,9 @@
           <div class="sidebar-module">
             <h4>Archives</h4>
             <ol class="list-unstyled">
-              <li><a href="#">January 2014</a></li>
-              <li><a href="#">December 2013</a></li>
-              <li><a href="#">November 2013</a></li>
-              <li><a href="#">October 2013</a></li>
-              <li><a href="#">September 2013</a></li>
-              <li><a href="#">August 2013</a></li>
-              <li><a href="#">July 2013</a></li>
-              <li><a href="#">June 2013</a></li>
-              <li><a href="#">May 2013</a></li>
-              <li><a href="#">April 2013</a></li>
-              <li><a href="#">March 2013</a></li>
-              <li><a href="#">February 2013</a></li>
+              <% @articles_by_date.each do |article| %>
+                <li><a href="#"><%= article[1].first.created_at.to_date.strftime('%B %Y') rescue '-' %></a></li>
+              <% end %>
             </ol>
           </div>
           <div class="sidebar-module">

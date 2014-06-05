@@ -3,6 +3,7 @@ class Article < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   before_save :default_active
+  default_scope order('id DESC')
   
   def default_active
     self.is_active = true
@@ -22,5 +23,9 @@ class Article < ActiveRecord::Base
   
   def category_name
     self.category.present?? self.category.name : '-'
+  end
+  
+  def self.search(params)
+    return self.all if params[:searcb].blank?
   end
 end
