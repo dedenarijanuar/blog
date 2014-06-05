@@ -127,3 +127,5 @@ group :test do
 end
 
 gem "figaro"
+#fulltext search
+gem 'pg_search'

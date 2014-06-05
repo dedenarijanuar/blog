@@ -1,4 +1,7 @@
 class Article < ActiveRecord::Base
+  include PgSearch
+  pg_search_scope :searches, :against => [:title_id, :title_en, :content_id, :content_en]
+  
   has_many :article_comments
   belongs_to :user
   belongs_to :category
@@ -25,7 +28,10 @@ class Article < ActiveRecord::Base
     self.category.present?? self.category.name : '-'
   end
   
+  #fulltext search
   def self.search(params)
-    return self.all if params[:searcb].blank?
+    return self.all if params[:search].blank?
+    return self.searches(params[:search])
   end
+  
 end

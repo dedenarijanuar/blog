@@ -7,7 +7,7 @@ Blog::Application.routes.draw do
   get 'auth/failure', to: redirect('/')
 
   devise_for :users, :controllers => {
-    :registrations => "users/registrations", :passwords => "users/passwords", :confirmations => 'users/confirmations', :sessions => 'users/sessions'
+    :registrations => "users/registrations", :sessions => 'users/sessions'
   }
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin_users, ActiveAdmin::Devise.config
