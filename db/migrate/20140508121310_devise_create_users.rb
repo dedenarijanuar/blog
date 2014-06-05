@@ -33,6 +33,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :facebook_id
       t.string :google_id
       t.boolean :is_active
+      t.string :provider
+      t.string :uid
+      t.string :name
       t.timestamps
     end
 

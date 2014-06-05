@@ -1,0 +1,6 @@
+<div class="blog-post">
+  <h2 class="blog-post-title"><%= @blog.title %></h2>
+  <p class="blog-post-meta"><%= @blog.created_at.to_date %> by <a href="#">Admin</a></p>
+
+  <%= simple_format @blog.content %>
+</div>

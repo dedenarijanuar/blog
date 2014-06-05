@@ -8,6 +8,8 @@ class CreateArticles < ActiveRecord::Migration
       t.text :content_en
       t.boolean :is_active
       t.integer :viewed
+      t.string :slug
+      t.string :category_id
 
       t.timestamps
     end

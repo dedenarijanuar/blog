@@ -65,14 +65,15 @@ ActiveRecord::Schema.define(version: 20140605062650) do
     t.text     "content_en"
     t.boolean  "is_active"
     t.integer  "viewed"
+    t.string   "slug"
+    t.string   "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug"
-    t.integer  "category_id"
   end
 
   create_table "categories", force: true do |t|
     t.string   "name"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -92,14 +93,6 @@ ActiveRecord::Schema.define(version: 20140605062650) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
-
-  create_table "comments", force: true do |t|
-    t.integer  "article_id"
-    t.integer  "user_id"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "pg_search_documents", force: true do |t|
     t.text     "content"
@@ -130,11 +123,11 @@ ActiveRecord::Schema.define(version: 20140605062650) do
     t.string   "facebook_id"
     t.string   "google_id"
     t.boolean  "is_active"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
     t.string   "provider"
     t.string   "uid"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

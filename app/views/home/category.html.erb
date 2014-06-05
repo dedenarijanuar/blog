@@ -1,0 +1,10 @@
+<% @category.articles.each do |article| %>
+  <div class="blog-post">
+    <h2 class="blog-post-title"><%= article.title %></h2>
+    <p class="blog-post-meta"><%= article.created_at.to_date %> by <a href="#">Admin</a></p>
+
+    <%= ActionView::Base.full_sanitizer.sanitize(article.content.truncate(200)) %><br/>
+    <%= link_to 'read more..', blog_path(article.slug) %>
+  </div>
+  <br/>
+<% end %>

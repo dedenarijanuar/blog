@@ -13,15 +13,14 @@ Blog::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
-  resources :blogs
-  resources :categories
   get 'home' => 'home#index'
   get 'about' => 'home#about'
+  get 'categories/:slug' => 'home#category', as: 'category'
+  get 'categories/blogs/:slug' => 'home#blog', as: 'blog'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-
 end

@@ -21,14 +21,14 @@ end
 
 10.times do |i|
   name = Faker::Commerce.department
-  Category.create(name: name)
+  Category.create(name: name, slug: name.to_slug)
 end
 
 10.times do |i|
-  title = Faker::Lorem.sentence
+  title = Faker::Name.title
   content = Faker::Lorem.paragraph(10)
   Article.create(
-    title_id: title, title_en: title, content_id: content, content_en: content,
+    title_id: title, title_en: title, content_id: content, content_en: content, slug: title.to_slug,
     user_id: User.all.sample(1).first.id, category_id: Category.all.sample(1).first.id
   )
 end

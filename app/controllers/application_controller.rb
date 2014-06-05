@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   def load_data
     @categories = Category.limit(3)
     @articles = Article.search(params)
+    @popular_articles = Article.order('viewed DESC').limit(5)
     @articles_by_date = Article.all.group_by{|article| article.created_at.to_date.month }
   end
 end
