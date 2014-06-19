@@ -101,6 +101,7 @@ body {
   font-family:  'Lustria', serif;
   background-color: #f5f7f7;
   color: #fefefe;
+  line-height: 1.8;
 }
 
 li {
@@ -111,7 +112,7 @@ li {
   width: 970px !important;
 }
 
-a:hover {
+a:hover, a:focus {
   text-decoration: none;
 }
 
@@ -376,7 +377,7 @@ img {
   color: #5e5e5b;
 }
 
-.pagination > li > a:hover {
+.pagination > li > a:hover, .pagination > li > a:focus {
   color: #f66546;
 }
 /* ===========================================================================
@@ -466,7 +467,7 @@ img {
   color: #5e5e5b;
 }
 
-.right-content a:hover {
+.right-content a:hover, .right-content a:focus {
   color: #f56545;
 }
 
