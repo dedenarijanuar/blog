@@ -291,12 +291,17 @@ nav .open > .dropdown-menu {
   padding: 3px 4px;
 }
 
-.formsearch { display:none; }
+.formsearch { 
+  display:none;
+}
+
+.formsearch form {
+  display: inline;
+}
 
 .selected .formsearch {
   white-space: nowrap;
-  position: relative;
-  display:inline;
+  display:block;
   -webkit-animation: showmenu 1s;
   -moz-animation: showmenu 1s;
   -ms-animation: showmenu 1s;
@@ -311,8 +316,6 @@ nav .open > .dropdown-menu {
   color: #fefefe;
   background: #5e5d5b;
   width: 196px;
-  position: relative;
-  top: -1px;
   outline: none;
 }
 
@@ -324,10 +327,7 @@ nav .open > .dropdown-menu {
 }
 
 .formsearch .search-icon {
-  position: absolute;
-  top: -26px;
   padding: 4px;
-  right: -97px;
   background: #5e5d5b;
 }
 

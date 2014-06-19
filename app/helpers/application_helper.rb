@@ -16,7 +16,7 @@ module ApplicationHelper
        concat link_to "Sign out", destroy_user_session_path, method: :delete, id: 'sign_out'
      else
        concat link_to 'Sign in', new_user_session_path
-       concat link_to 'Sign in with facebook', 'auth/facebook', id: 'facebook_connect'
+       concat link_to 'Sign in with facebook', '/auth/facebook', id: 'facebook_connect'
      end
    end
  end
