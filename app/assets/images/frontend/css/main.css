@@ -109,7 +109,7 @@ li {
 }
 
 .container {
-  width: 970px !important;
+  width: 970px;
 }
 
 a:hover, a:focus {
@@ -482,12 +482,128 @@ footer {
 }
 
 
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
 
+@media (max-width: 992px) {
+  .container {
+    width: 750px;
+  }
+  .col-xs-6 {
+    width: 100%;
+  }
+  .search-input {
+    width: 130px;
+  }
+}
 
+@media (max-width: 750px) {
+  .container {
+    width: 600px;
+  }
+  nav > ul > li > a, nav > ul > li.search {
+    padding: 17px 15px;
+  }
+  .search-input {
+    width: 124px;
+  }
+}
 
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
 
+   
+   nav ul {
+     margin: 0;
+     position: relative;
+   }
 
+   nav > ul > li {
+     position: static;
+   }
 
+   .formsearch {
+     position: absolute;
+     left: 0;
+     top: 60px;
+     width: 100%;
+   }
+
+   .selected .label-search {
+     display: block;
+   }
+
+   .search-input {
+     height: 40px;
+     width: 100%;
+   }
+
+   .search-icon {
+     display: none;
+   }
+   
+}
+
+@media (max-width: 530px) {
+  body {
+    font-size: 12px;
+  }
+
+  #logo ul li:nth-child(1) {
+    margin-top: 35px;
+  }
+  
+  #logo ul li:nth-child(3) {
+    margin-top: 75px;
+  }
+
+  #logo ul li:nth-child(2) {
+    margin: 48px 35px;
+  }
+   nav > ul > li > a, nav > ul > li.search {
+    padding: 9px 15px;
+  }
+   nav > ul > li span.text {
+     display: none;
+   }
+
+   nav {
+     height: 40px;
+     margin-top: 42px;
+   }
+
+   .formsearch {
+     top: 40px;
+   }
+}
+
+@media (max-width: 450px) {
+  #logo ul li:nth-child(2) {
+    margin: 48px 25px;
+  }
+  #logo ul li:nth-child(1) {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 390px) {
+  
+  #logo ul li:nth-child(2) {
+    display: none;
+  }
+  #logo ul li {
+    float: none;
+  }
+  #logo ul li:nth-child(3) {
+    margin-top: 0;
+  }
+  nav {
+    margin-top: 7px;
+  }
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
