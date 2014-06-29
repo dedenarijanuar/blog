@@ -15,4 +15,5 @@
 //= require flatly/loader
 //= require flatly/bootswatch
 //= require turbolinks
-
+//= require modernizr-2.6.2.min
+//= require main
