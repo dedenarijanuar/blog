@@ -45,7 +45,11 @@
             <div class="clearfix"></div>
             <nav>
               <ul>
-                <li><a href="#"><i class="fa fa-home"></i> <span class="text">Beranda</span></a></li>
+                <li>
+                  <%= link_to root_path do %>
+                    <i class="fa fa-home"></i> <span class="text">Beranda</span>
+                  <% end %>
+                </li>
                 <li class="dropdown">
                 <a class="dropdown-toggle" href="#"data-toggle="dropdown"><i class="fa fa-list"></i> <span class="text">Tutorial</span></a>
                   <ul class="dropdown-menu" role="menu">
@@ -65,7 +69,11 @@
                       <span class="search-icon"><i class="fa fa-search"></i></span>
                     </div>
                 </li>
-                <li><a href="#"><i class="fa fa-user"></i> <span class="text">Login</span></a></li>
+                <li>
+                  <%= link_to new_user_session_path do %>
+                    <i class="fa fa-user"></i> <span class="text">Login</span>
+                  <% end %>
+                </li>
               </ul>
             </nav>
           </header>

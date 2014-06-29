@@ -1,14 +1,128 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Blog</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>KodeSutra</title>
+        <link href='http://fonts.googleapis.com/css?family=Lustria|Lato:400,700,900,900italic' rel='stylesheet' type='text/css'>
+        <%= stylesheet_link_tag    "frontend", media: "all", "data-turbolinks-track" => true %>
+        <%= javascript_include_tag "frontend", "data-turbolinks-track" => true %>
+        <%= csrf_meta_tags %>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<%= yield %>
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-</body>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="bg-header"></div>
+        <div class="container">
+          <header>
+            <div id="social-media">
+              <a href="http://kodesutra.com" target="_blank"><i class="fa fa-facebook"></i></a>
+              <a href="http://kodesutra.com" target="_blank"><i class="fa fa-twitter"></i></a>
+              <a href="http://kodesutra.com" target="_blank"><i class="fa fa-rss"></i></a>
+            </div>
+            <div class="clearfix"></div>
+            <div id="logo">
+              <ul>
+                <li>
+                  <h1>Kode</h1> 
+                  <h1 class="w-adjust">Sutra</h1>
+                 </li>
+                 <li></li>
+                 <li>Blog buat para geeks</li>
+               </ul>
+            </div>
+            <div class="clearfix"></div>
+            <nav>
+              <ul>
+                <li>
+                  <%= link_to root_path do %>
+                    <i class="fa fa-home"></i> <span class="text">Beranda</span>
+                  <% end %>
+                </li>
+                <li class="dropdown">
+                <a class="dropdown-toggle" href="#"data-toggle="dropdown"><i class="fa fa-list"></i> <span class="text">Tutorial</span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Rails</a></li>
+                    <li><a href="#">PHP</a></li>
+                    <li><a href="#">NodeJS</a></li>
+                  </ul>
+                </li>
+                <li><a href="#"><i class="fa fa-comments"></i> <span class="text">Request Tutorial</span></a></li>
+                <li class="search">
+                  <div class="label-search"><i class="fa fa-search"></i> <span class="text">Pencarian</span></div>
+                    <div class="formsearch">
+                      <form id="search" action="#" method="get" target="_top">
+                        <input type="text" name="q" class="search-input">
+                        <input type="hidden" name="ie" value="UTF-8">
+                      </form>
+                      <span class="search-icon"><i class="fa fa-search"></i></span>
+                    </div>
+                </li>
+                <li>
+                  <%= link_to new_user_session_path do %>
+                    <i class="fa fa-user"></i> <span class="text">Login</span>
+                  <% end %>
+                </li>
+              </ul>
+            </nav>
+          </header>
+          <div class="content">
+            <%= yield %>
+          </div>
+        </div>
+        <footer>
+          <div class="container">
+            <div class="col-md-4 footer-left">
+              <h2>KodeSutra</h2>
+              <p class='fcontent'>
+              KodeSutra adalah webblog komunitas mengenai pemrograman yang didesikasikan kepada para geeks. <a href="" class="red-link">Selengkapnya</a>
+              </p>
+            </div>
+            <div class="col-md-4 footer-middle">
+              <h2 style="width:70%">Tag Terpopuler</h2>
+              <ul class="fcontent">
+                <li><a href="#" class="red-link2">Ruby On Rails</a></li>
+                <li><a href="#" class="red-link2">Wordpress</a></li>
+                <li><a href="#" class="red-link2">Node Js</a></li>
+                <li><a href="#" class="red-link2">Android</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 footer-right">
+              <h2>Ikuti Kami</h2>
+              <div class="social-media fcontent">
+                <a href="http://kodesutra.com" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+                <a href="http://kodesutra.com" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+                <a href="http://kodesutra.com" target="_blank"><i class="fa fa-rss-square fa-2x"></i></a>
+                <br/>
+                <br/>
+                Copyright &copy; <span class="red-text">kodesutra 2014</span>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <script src="/assets/frontend/js/vendor/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="/assets/frontend/js/bootstrap.min.js"></script>
+        <script src="/assets/frontend/js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
 </html>
+
+

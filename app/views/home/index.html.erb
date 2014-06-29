@@ -9,7 +9,7 @@
       </div>
       <div class="news">
         <div class="crop">
-          <img src="/assets/frontend/img/flowers.jpg" alt="">
+          <%= image_tag 'flowers.jpg'%>
         </div>
         <p><%= ActionView::Base.full_sanitizer.sanitize(article.content.truncate(200)) %></p>
         <%= link_to 'Read More', '#', class: 'read-more' %>
