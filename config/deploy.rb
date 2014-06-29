@@ -14,7 +14,8 @@ set :use_sudo, false
 
 set :scm, "git"
 set :repository, "git@github.com:dedennufan/#{application}.git"
-set :branch, "master"
+set :stages, ["development", "production"]
+set :default_stage, "development"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
