@@ -15,4 +15,5 @@
 //= require flatly/loader
 //= require flatly/bootswatch
 //= require turbolinks
+//= require tree .
 
