@@ -1,14 +1,12 @@
-require "bundler/capistrano"
 require 'capistrano/ext/multistage'
+require "bundler/capistrano"
 require "rvm/capistrano"
 
 # Define your server here
-server "128.199.230.36", :web, :app, :db, primary: true
 
 # Set application settings
 set :application, "blog"
 set :user, "kodesutra" # As defined on your server
-set :deploy_to, "/home/#{user}/#{application}" # Directory in which the deployment will take place
 set :deploy_via, :remote_cache
 set :port, 3233
 set :use_sudo, false
@@ -22,6 +20,7 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
+after "deploy", "deploy:restart_daemons" 
 
 namespace :deploy do
   %w[start stop restart].each do |command|
