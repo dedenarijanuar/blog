@@ -39,11 +39,17 @@ end
  gem 'unicorn'
 
  group :development do
-   # Use Capistrano for deployment
-   gem 'capistrano'
-   gem 'rvm-capistrano'
    gem 'debugger'
  end
+
+gem 'capistrano', '~> 3.1.0'
+ # Use Capistrano for deployment
+gem 'rvm-capistrano'
+# rails specific capistrano funcitons
+gem 'capistrano-rails', '~> 1.1.0'
+# integrate bundler with capistrano
+gem 'capistrano-bundler'
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
