@@ -20,5 +20,15 @@ module Blog
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    
+    # Enable the asset pipeline
+    config.assets.enabled = true
+    config.assets.paths << Rails.root.join("app", "assets", "components")
+    config.action_view.cache_template_loading = false
+
+    # Version of your assets, change this if you want to expire all your assets
+    config.assets.version = '1.0'
+    config.assets.paths += ["#{config.root}/app/assets/font", "#{config.root}/app/assets/images/", "#{config.root}/vendor/assets/images"]
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.eot *.svg *.ttf *.otf *.woff vendor/assets/stylesheets//* app/assets/font/*) 
   end
 end
